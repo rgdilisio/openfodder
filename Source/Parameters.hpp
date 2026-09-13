@@ -76,6 +76,10 @@ public:
 	size_t mWindowRows;
 	size_t mWindowColumns;
 
+	// Bilinear filtering
+	bool mBilinearFilter;       // Use bilinear filtering
+	// Bilinear filtering
+
 	bool mRandom;               // Start a random map
 	bool mRandomSave;			// Create a random map
 	bool mRandomMenuOnStart;    // Open the create-random-map options menu on startup
@@ -206,6 +210,10 @@ public:
 		mWindowMode = false;
 		mIntegerScaling = true;
 		mWindowScale = 0;
+
+		// Bilinear filtering
+		mBilinearFilter = false;
+		// Bilinear filtering
 
 		mWindowRows = 0;
 		mWindowColumns = 0;
