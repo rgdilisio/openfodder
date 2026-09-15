@@ -166,10 +166,7 @@ std::string sFodderParameters::ToJson() {
 
 	Save["mWindowMode"] = mWindowMode;
 	Save["mIntegerScaling"] = mIntegerScaling;
-
-	// Bilinear filtering
 	Save["mBilinearFilter"] = mBilinearFilter;
-	// Bilinear filtering
 
 	Save["mRandom"] = mRandom;
 	Save["mRandomMapOptionsEnabled"] = mRandomMapOptionsEnabled;
@@ -215,11 +212,7 @@ bool sFodderParameters::FromJson(const std::string& pJson) {
 	mMissionNumber = LoadedData["mMissionNumber"];
 	mPhaseNumber = LoadedData["mPhaseNumber"];
 	mWindowMode = LoadedData["mWindowMode"];
-
-	// Bilinear filtering
 	mBilinearFilter = LoadedData["mBilinearFilter"];
-	// Bilinear filtering
-
 	mRandom = LoadedData["mRandom"];
 	if (LoadedData.count("mRandomMapOptionsEnabled") > 0)
 		mRandomMapOptionsEnabled = LoadedData["mRandomMapOptionsEnabled"];
@@ -302,10 +295,7 @@ void sFodderParameters::PrepareOptions() {
 		("w,window", "Start in window mode", cxxopts::value<bool>()->default_value("false"))
 		("window-scale", "Set the window scale", cxxopts::value<std::uint32_t>()->default_value("0"))
 		("integer-scaling", "Use integer scaling", cxxopts::value<bool>()->default_value("true"))
-
-		// Bilinear filtering
 		("bilinear", "Apply bilinear filtering", cxxopts::value<bool>()->default_value("false"))
-		// Bilinear filtering
 
 		("cheats", "Enable cheat keys", cxxopts::value<bool>()->default_value("false"))
 		("max-sprite", "Set the maximum sprites", cxxopts::value<std::uint32_t>()->default_value("45"), "45")
@@ -771,10 +761,7 @@ bool sFodderParameters::SaveIni() {
 
 		ini.set("scale", (mWindowScale == 0) ? "auto" : std::to_string(mWindowScale));
 		ini.set("integer", mIntegerScaling ? "true" : "false");
-
-		// Bilinear filtering
 		ini.set("bilinear", mBilinearFilter ? "true" : "false");
-		// Bilinear filtering
 
 		ini.set("columns", (mWindowColumns == 0) ? "0" : std::to_string(mWindowColumns));
 		ini.set("rows", (mWindowRows == 0) ? "0" : std::to_string(mWindowRows));
@@ -867,12 +854,10 @@ bool sFodderParameters::ProcessINI() {
 			else
 				mWindowMode = false;
 
-			// Bilinear filtering
 			if (ini.get("bilinear", "false") == "true")
 				mBilinearFilter = true;
 			else
 				mBilinearFilter = false;
-			// Bilinear filtering
 
 			if (ini.get("cheats", "false") == "true")
 				mCheatsEnabled = true;

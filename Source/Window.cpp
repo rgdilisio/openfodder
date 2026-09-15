@@ -42,9 +42,7 @@ cWindow::cWindow() {
     mHasFocus = true;
 	mResized = false;
 
-	// Bilinear filtering
 	mBilinearFilter = false;
-	// Bilinear filtering
 }
 
 cWindow::~cWindow() {
@@ -434,14 +432,12 @@ void cWindow::RenderAt( cSurface* pImage ) {
 		}
 	}
 
-	// Bilinear filtering
 	if (g_Fodder->mParams->mBilinearFilter) {
 		SDL_SetTextureScaleMode(pImage->GetTexture(), SDL_SCALEMODE_LINEAR);
 	}
 	else {
 		SDL_SetTextureScaleMode(pImage->GetTexture(), SDL_SCALEMODE_NEAREST);
 	}
-	// Bilinear filtering
 
 	SDL_RenderTexture( mRenderer, pImage->GetTexture(), &Src, &Dest );
 }
@@ -472,14 +468,12 @@ void cWindow::RenderShrunk( cSurface* pImage ) {
 		}
 	}
 
-	// Bilinear filtering
 	if (g_Fodder->mParams->mBilinearFilter) {
 		SDL_SetTextureScaleMode(pImage->GetTexture(), SDL_SCALEMODE_LINEAR);
 	}
 	else {
 		SDL_SetTextureScaleMode(pImage->GetTexture(), SDL_SCALEMODE_NEAREST);
 	}
-	// Bilinear filtering
 
 	SDL_RenderTexture( mRenderer, pImage->GetTexture(), &Src, &Dest);
 }
