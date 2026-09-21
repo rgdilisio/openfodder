@@ -2362,8 +2362,8 @@ void cFodder::keyProcess(uint8 pKeyCode, bool pPressed)
             mWindow->WindowDecrease();
     }
 
-    // Toggle Bilinear Filtering by pressing F10
-    if (pKeyCode == SDL_SCANCODE_F10 && pPressed)
+    // Toggle Bilinear Filtering by pressing F8
+    if (pKeyCode == SDL_SCANCODE_F8 && pPressed)
     {
         if (g_Fodder->mParams)
             if(!g_Fodder->mParams->mBilinearFilter)
